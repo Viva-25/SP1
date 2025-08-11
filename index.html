@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic Book Hero Party!</title>
+    <!-- Tailwind CSS CDN for responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for comic book style -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <!-- Riddle Page -->
+    <div id="riddlePage" class="comic-panel transition-opacity duration-500 ease-in-out">
+        <div class="speech-bubble">
+            <p>I bring all friends together once a year,
+               Songs, dances, and laughter you hear.
+               What am I?</p>
+        </div>
+        <!-- Wrong answer feedback message -->
+        <div id="riddleFeedback" class="riddle-feedback-text hidden">
+            <!-- Message will be inserted here by JavaScript -->
+        </div>
+        <div class="flex flex-col md:flex-row justify-center items-center mt-4 space-y-4 md:space-y-0 md:space-x-4">
+            <button class="comic-button" onclick="checkRiddleAnswer('River')">Birth Day</button>
+            <button class="comic-button" onclick="checkRiddleAnswer('Map')">Annual Day</button>
+            <button class="comic-button" onclick="checkRiddleAnswer('Book')">Sports Day</button>
+        </div>
+    </div>
+
+    <!-- Gender Selection Page -->
+    <div id="genderPage" class="comic-panel hidden opacity-0 transition-opacity duration-500 ease-in-out">
+        <div class="speech-bubble">
+            <p>Ready to discover your inner hero? Tell me, what's your super gender?</p>
+        </div>
+        <div class="flex flex-col md:flex-row justify-center items-center mt-4 space-y-4 md:space-y-0 md:space-x-4">
+            <button class="comic-button" onclick="selectGender('Male')">Male</button>
+            <button class="comic-button" onclick="selectGender('Female')">Female</button>
+        </div>
+    </div>
+
+    <!-- Male Heroes Page -->
+    <div id="maleHeroesPage" class="comic-panel hidden opacity-0 transition-opacity duration-500 ease-in-out">
+        <div class="speech-bubble">
+            <p>Awesome! Which mighty male hero best represents your power?</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+            <button class="comic-button" onclick="selectHero('Aquaman')">Aquaman</button>
+            <button class="comic-button" onclick="selectHero('Black Panther')">Black Panther</button>
+            <button class="comic-button" onclick="selectHero('Dr Strange')">Dr Strange</button>
+            <button class="comic-button" onclick="selectHero('Shazam')">Shazam</button>
+        </div>
+    </div>
+
+    <!-- Female Heroes Page -->
+    <div id="femaleHeroesPage" class="comic-panel hidden opacity-0 transition-opacity duration-500 ease-in-out">
+        <div class="speech-bubble">
+            <p>Fantastic! Which incredible female hero embodies your strength?</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+            <button class="comic-button" onclick="selectHero('Wonder Woman')">Wonder Woman</button>
+            <button class="comic-button" onclick="selectHero('Female Loki')">Female Loki</button>
+            <button class="comic-button" onclick="selectHero('Black Widow')">Black Widow</button>
+            <button class="comic-button" onclick="selectHero('Super Girl')">Super Girl</button>
+        </div>
+    </div>
+
+    <!-- Hero Display Page -->
+    <div id="heroDisplayPage" class="comic-panel hidden opacity-0 transition-opacity duration-500 ease-in-out">
+        <div class="speech-bubble" id="heroQuote">
+            <!-- Quote will be inserted here -->
+        </div>
+        <img id="heroImage" class="hero-image" src="" alt="Your Hero">
+        <div class="confetti-container" id="confettiContainer"></div>
+        <button class="comic-button mt-6" onclick="showEventDetails()">Join the Hero Gathering!</button>
+    </div>
+
+    <!-- Event Details Page -->
+    <div id="eventDetailsPage" class="comic-panel hidden opacity-0 transition-opacity duration-500 ease-in-out">
+        <div class="speech-bubble">
+            <p>Your heroism is recognized! Join us at the grand hero gala!</p>
+        </div>
+        <div class="mb-6">
+            <p class="mb-2">Vidhai 2025</p>
+            <p class="mb-2">September 23rd, 2025</p>
+            <p class="mb-2">7:00 PM Onwards</p>
+            <p class="mb-2">VENUE: Concord</p>
+            <p class="mb-2">BY: Vivanta Chennai, IT Expressway</p>
+                    </div>
+        <button class="comic-button mt-6" onclick="resetGame()">New Adventure!</button>
+    </div>
+
+    <!-- Tone.js for sound effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
